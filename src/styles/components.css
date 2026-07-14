@@ -1,5 +1,489 @@
 /* ------------------------------------------------------------------
-   Global shell components — nav, footer, buttons, preloader slats,
-   page transitions, reserve overlay, sticky pill, makisu dividers.
-   Populated in build-order step 3.
+   Global shell components — nav, footer, buttons, slats, overlays.
    ------------------------------------------------------------------ */
+
+/* Buttons ----------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--mono-label);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0.95em 1.7em;
+  border: 1px solid var(--line);
+  color: var(--tigersmilk);
+  transition:
+    color var(--dur-fast) ease,
+    background-color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease;
+}
+
+.btn:hover {
+  border-color: var(--tigersmilk-60);
+}
+
+/* Gold outline — THE reserve button (plan §2) */
+.btn-gold {
+  border-color: var(--aji);
+  color: var(--aji);
+}
+
+.btn-gold:hover {
+  background: var(--aji);
+  color: var(--sumi);
+  border-color: var(--aji);
+}
+
+/* Solid gold — confirm actions */
+.btn-solid {
+  background: var(--aji);
+  border-color: var(--aji);
+  color: var(--sumi);
+}
+
+.btn-solid:hover {
+  background: var(--tigersmilk);
+  border-color: var(--tigersmilk);
+}
+
+.btn-solid:disabled {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--tigersmilk-60);
+  cursor: not-allowed;
+}
+
+/* Ghost secondary */
+.btn-ghost {
+  border-color: var(--line);
+}
+
+/* Nav ---------------------------------------------------------------- */
+.site-nav {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: var(--z-nav);
+  height: var(--nav-h);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav.is-scrolled {
+  background: rgba(23, 24, 20, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom-color: var(--line);
+}
+
+.nav-inner {
+  height: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.nav-logo img {
+  width: 110px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.nav-links a {
+  position: relative;
+  padding-block: 0.4em;
+  color: var(--tigersmilk);
+  transition: color var(--dur-fast) ease;
+}
+
+.nav-links a:hover {
+  color: var(--bamboo);
+}
+
+.nav-links a[aria-current='page']::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--bamboo);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  position: relative;
+  z-index: calc(var(--z-overlay) + 1);
+}
+
+.nav-burger span {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: var(--tigersmilk);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.nav-burger[aria-expanded='true'] span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.nav-burger[aria-expanded='true'] span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-burger {
+    display: flex;
+  }
+}
+
+/* Mobile menu --------------------------------------------------------- */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background: var(--nori);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--gutter);
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+.mobile-menu-links a {
+  font-family: var(--font-display);
+  font-size: var(--display-md);
+  line-height: 1.15;
+}
+
+.mobile-menu-links a[aria-current='page'] {
+  color: var(--bamboo);
+}
+
+.mobile-menu-foot {
+  position: absolute;
+  bottom: calc(var(--gutter) + 0.5rem);
+  left: var(--gutter);
+  right: var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--tigersmilk-60);
+}
+
+.mobile-menu-foot a {
+  color: var(--tigersmilk);
+}
+
+/* Scroll lock --------------------------------------------------------- */
+html.is-locked,
+html.is-locked body {
+  overflow: hidden;
+}
+
+/* Slat layer (preloader + page transitions) --------------------------- */
+.slats-layer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-slats);
+  display: flex;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.slats-layer.is-active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.slat {
+  flex: 1 1 0;
+  background: var(--nori);
+  border-right: 1px solid var(--line);
+}
+
+.preloader-brand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(340px, 64vw);
+  opacity: 0;
+}
+
+.preloader-skip {
+  position: absolute;
+  right: clamp(1.25rem, 4vw, 3rem);
+  bottom: clamp(1.25rem, 4vw, 2.5rem);
+  color: var(--tigersmilk-60);
+  padding: 0.5em 0.75em;
+}
+
+.preloader-skip:hover {
+  color: var(--tigersmilk);
+}
+
+/* Reserve overlay ------------------------------------------------------ */
+.reserve {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+}
+
+.reserve-slats {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.reserve-slats .slat {
+  transform: scaleX(0);
+}
+
+/* Reduced motion: the slat backdrop stays as a plain solid cover. */
+@media (prefers-reduced-motion: reduce) {
+  .reserve-slats {
+    background: var(--nori);
+  }
+}
+
+.reserve-inner {
+  position: relative;
+  height: 100%;
+  max-width: 52rem;
+  margin-inline: auto;
+  padding: calc(var(--nav-h) + 1rem) var(--gutter) 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.reserve-close {
+  position: absolute;
+  top: 1.5rem;
+  right: var(--gutter);
+  color: var(--tigersmilk-60);
+  padding: 0.5em 0.75em;
+}
+
+.reserve-close:hover {
+  color: var(--tigersmilk);
+}
+
+.reserve-title {
+  font-size: var(--display-md);
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.reserve-group {
+  border: 0;
+  padding: 0;
+  margin: 0 0 clamp(1.25rem, 3vh, 2rem);
+}
+
+.reserve-group legend {
+  font-family: var(--font-mono);
+  font-size: var(--mono-label);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--bamboo);
+  margin-bottom: 0.8rem;
+  padding: 0;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip-scroll {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.chip-scroll .chip {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+.chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.2rem, 1fr));
+  gap: 0.5rem;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: var(--mono-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.7em 1em;
+  border: 1px solid var(--line);
+  color: var(--tigersmilk);
+  white-space: nowrap;
+  transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+
+.chip:hover {
+  border-color: var(--tigersmilk-60);
+}
+
+.chip[aria-pressed='true'] {
+  border-color: var(--aji);
+  color: var(--aji);
+}
+
+.reserve-foot {
+  margin-top: 0.5rem;
+}
+
+.reserve-success .reserve-summary {
+  color: var(--tigersmilk);
+  margin-bottom: 1rem;
+}
+
+.reserve-success .reserve-note {
+  color: var(--tigersmilk-60);
+  margin-bottom: 2rem;
+}
+
+/* Sticky reserve pill --------------------------------------------------- */
+.reserve-pill {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.75rem);
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  z-index: var(--z-pill);
+  background: var(--aji);
+  color: var(--sumi);
+  padding: 0.9em 1.5em;
+  border-radius: 999px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.reserve-pill:hover {
+  background: var(--tigersmilk);
+}
+
+/* Makisu tick-strip divider (plan §2 — the rolled mat edge) -------------- */
+.makisu-divider {
+  height: 14px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--line) 0,
+    var(--line) 2px,
+    transparent 2px,
+    transparent 9px
+  );
+}
+
+/* Footer ------------------------------------------------------------------ */
+.site-footer {
+  background: var(--nori);
+  padding-top: clamp(3.5rem, 8vh, 6rem);
+  margin-top: var(--section-pad);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+
+.footer-brand img {
+  width: 150px;
+  margin-bottom: 1.25rem;
+}
+
+.footer-brand p {
+  color: var(--tigersmilk-60);
+  font-size: 0.95rem;
+}
+
+.footer-col,
+.footer-address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85em;
+  font-style: normal;
+  color: var(--tigersmilk-60);
+}
+
+.footer-col-title {
+  color: var(--bamboo);
+}
+
+.footer-col a,
+.footer-col button,
+.footer-address a {
+  color: var(--tigersmilk);
+  text-align: left;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  transition: color var(--dur-fast) ease;
+}
+
+.footer-col a:hover,
+.footer-col button:hover,
+.footer-address a:hover {
+  color: var(--bamboo);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-block: 1.5rem;
+  color: var(--tigersmilk-60);
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

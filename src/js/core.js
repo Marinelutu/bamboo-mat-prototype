@@ -18,4 +18,13 @@ if (lenis) {
   gsap.ticker.lagSmoothing(0);
 }
 
+/** Shared scroll lock for full-screen overlays (mobile menu, reserve). */
+export function setScrollLock(locked) {
+  document.documentElement.classList.toggle('is-locked', locked);
+  if (lenis) {
+    if (locked) lenis.stop();
+    else lenis.start();
+  }
+}
+
 export { gsap, ScrollTrigger, SplitText };

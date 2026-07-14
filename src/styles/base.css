@@ -55,6 +55,11 @@ ol {
   padding: 0;
 }
 
+/* [hidden] must always win, even over display rules on classes. */
+[hidden] {
+  display: none !important;
+}
+
 /* Display type ---------------------------------------------------- */
 h1,
 h2,
