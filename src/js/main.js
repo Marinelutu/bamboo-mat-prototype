@@ -16,6 +16,8 @@ initStickyPill();
 initMagnetic();
 
 // Page-specific modules, loaded on demand (filled in as pages are built).
-const pageModules = {};
+const pageModules = {
+  home: () => import('./home.js'),
+};
 
 pageModules[document.body.dataset.page]?.().then((mod) => mod.init?.());

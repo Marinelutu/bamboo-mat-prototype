@@ -31,7 +31,325 @@
   </head>
   <body data-page="home">
     <main id="main">
-      <!-- §3 Home sections arrive in build-order step 4 -->
+      <!-- 3.1 Hero -->
+      <section class="hero" data-hero>
+        <div class="hero-media" aria-hidden="true">
+          <!-- Swap for ambient video loop when client provides footage -->
+          <img
+            class="hero-img"
+            src="/assets/img/hero-1.jpg"
+            alt=""
+            fetchpriority="high"
+          />
+          <div class="hero-shade"></div>
+        </div>
+        <div class="hero-content container">
+          <h1 class="hero-title">
+            <span class="hero-line"><span class="hero-line-inner">Where <em>Tokyo</em></span></span>
+            <span class="hero-line hero-line-logo" aria-hidden="true">
+              <span class="hero-line-inner"><img src="/assets/img/bamboo_mark.svg" alt="" /></span>
+            </span>
+            <span class="hero-line"><span class="hero-line-inner">meets <em>Lima</em></span></span>
+          </h1>
+          <p class="hero-sub mono">Nikkei dining · Stratford, London · Est. 2022</p>
+          <div class="hero-ctas">
+            <button type="button" class="btn btn-gold" data-reserve>Reserve a table</button>
+            <a class="btn btn-ghost" href="/menu.html">Explore the menu</a>
+          </div>
+        </div>
+        <div class="hero-scroll mono" aria-hidden="true">
+          <span>Scroll</span>
+          <span class="hero-scroll-line"></span>
+        </div>
+      </section>
+
+      <!-- 3.2 The Quote -->
+      <section class="quote section">
+        <div class="container">
+          <blockquote>
+            <p class="quote-text">“Plates of Peruvian joy.”</p>
+            <cite class="mono">Grace Dent — The Guardian</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <div class="container"><div class="makisu-divider" aria-hidden="true"></div></div>
+
+      <!-- 3.3 Chapter 01 — The Cuisine -->
+      <section class="trio section">
+        <div class="container">
+          <p class="eyebrow">01 — The Cuisine</p>
+
+          <article class="trio-row">
+            <a class="img-mask trio-img" href="/menu.html#starters">
+              <img
+                src="/assets/img/g-6.jpg"
+                alt="Tuna tartar with crisp rice crackers in low candle-light"
+                loading="lazy"
+              />
+            </a>
+            <div class="trio-copy">
+              <h3 class="display">Cured in citrus</h3>
+              <p class="trio-kicker mono">Ceviche &amp; Tiradito</p>
+              <p class="measure">
+                Seabass in passion-fruit tiger’s milk. Yellowtail under yuzu-truffle soy. The
+                Peruvian coast, cut with a Japanese knife.
+              </p>
+              <a class="text-link mono" href="/menu.html#starters">View the raw bar →</a>
+            </div>
+          </article>
+
+          <article class="trio-row">
+            <a class="img-mask trio-img" href="/menu.html#maki">
+              <img
+                src="/assets/img/g-21.jpg"
+                alt="Chopsticks lifting a maki roll from a shared board"
+                loading="lazy"
+              />
+            </a>
+            <div class="trio-copy">
+              <h3 class="display">Rolled by hand</h3>
+              <p class="trio-kicker mono">Sushi &amp; Maki</p>
+              <p class="measure">
+                From classic nigiri to the Bamboo Maki — crisp nobashi shrimp, bluefin tuna,
+                acevichado sauce. Precision from Tokyo, fire from Lima.
+              </p>
+              <a class="text-link mono" href="/menu.html#maki">View the sushi →</a>
+            </div>
+          </article>
+
+          <article class="trio-row">
+            <a class="img-mask trio-img" href="/menu.html#mains">
+              <img
+                src="/assets/img/g-15.jpg"
+                alt="Glazed anticucho skewers under a green herb crust"
+                loading="lazy"
+              />
+            </a>
+            <div class="trio-copy">
+              <h3 class="display">Kissed by fire</h3>
+              <p class="trio-kicker mono">Anticucho &amp; the grill</p>
+              <p class="measure">
+                Anticucho glaze, charred octopus, A4 wagyu finished aburi-style. A nod to Peruvian
+                streets, where fire meets flavour.
+              </p>
+              <a class="text-link mono" href="/menu.html#mains">View the grill →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3.4 Chapter 02 — Signature dishes (horizontal scroll) -->
+      <section class="dishes" data-dishes>
+        <div class="container dishes-head">
+          <p class="eyebrow">02 — Signature Dishes</p>
+          <h2 class="display">The plates that made our name.</h2>
+        </div>
+        <div class="dishes-viewport" data-dishes-viewport>
+          <div class="dishes-track" data-dishes-track>
+            <figure class="dish-card">
+              <img
+                src="/assets/img/g-3.jpg"
+                alt="Tuna tartar crowned with a curled rice cracker"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="dish-price mono">£14.50</span>
+                <h3>Tuna Tartar</h3>
+                <p>Hand-cut tuna, avocado, crisp rice crackers.</p>
+              </figcaption>
+            </figure>
+            <figure class="dish-card">
+              <img
+                src="/assets/img/g-10.jpg"
+                alt="The Bamboo Maki — crisp nobashi shrimp rolled and sliced on a wooden board"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="dish-price mono">£22</span>
+                <h3>Bamboo Maki</h3>
+                <p>Crisp nobashi shrimp, bluefin tuna, acevichado.</p>
+              </figcaption>
+            </figure>
+            <figure class="dish-card">
+              <img
+                src="/assets/img/g-17.jpg"
+                alt="Gambas frites standing upright in a black stone cup"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="dish-price mono">£9.50</span>
+                <h3>Gambas Frites</h3>
+                <p>Golden fried prawns, made for the table.</p>
+              </figcaption>
+            </figure>
+            <figure class="dish-card">
+              <img
+                src="/assets/img/g-7.jpg"
+                alt="Hamachi tiradito — yellowtail slices in a citrus soy"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="dish-price mono">£14.50</span>
+                <h3>Hamachi Tiradito</h3>
+                <p>Yellowtail under yuzu-truffle soy.</p>
+              </figcaption>
+            </figure>
+            <figure class="dish-card">
+              <img
+                src="/assets/img/g-25.jpg"
+                alt="Mochi ice cream shaped as a tiny pumpkin on chantilly"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="dish-price mono">£7</span>
+                <h3>Mochi Ice Cream</h3>
+                <p>Soft mochi, ice cream heart, seasonal shapes.</p>
+              </figcaption>
+            </figure>
+            <figure class="dish-card">
+              <img
+                src="/assets/img/g-27.jpg"
+                alt="The Nikkei Punch over ice in a cut-crystal glass"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="dish-price mono">£12.50</span>
+                <h3>Nikkei Punch</h3>
+                <p>The signature serve from the bar.</p>
+              </figcaption>
+            </figure>
+            <div class="dish-card dish-card-end">
+              <p class="display">The full story is on the menu.</p>
+              <a class="btn btn-ghost" href="/menu.html">See the menu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container"><div class="makisu-divider" aria-hidden="true"></div></div>
+
+      <!-- 3.5 Chapter 03 — Experiences -->
+      <section class="exp section">
+        <div class="container">
+          <p class="eyebrow">03 — More Than Dinner</p>
+          <div class="exp-grid">
+            <a class="exp-card" href="/experiences.html#brunch">
+              <span class="img-mask">
+                <img
+                  src="/assets/img/g-22.jpg"
+                  alt="Two guests toasting spritzes over a table of maki and tempura"
+                  loading="lazy"
+                />
+              </span>
+              <span class="exp-card-body">
+                <h3>Bottomless Brunch</h3>
+                <span class="mono">Every Saturday &amp; Sunday</span>
+                <span class="exp-arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+            <a class="exp-card" href="/experiences.html#steak-sushi">
+              <span class="img-mask">
+                <img
+                  src="/assets/img/g-8.jpg"
+                  alt="A shared table of maki boards and cocktails"
+                  loading="lazy"
+                />
+              </span>
+              <span class="exp-card-body">
+                <h3>Steak &amp; Sushi Sundays</h3>
+                <span class="mono">A ritual, every Sunday</span>
+                <span class="exp-arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+            <a class="exp-card" href="/experiences.html#terrace">
+              <span class="img-mask">
+                <img
+                  src="/assets/img/g-4.jpg"
+                  alt="A spritz with fresh herbs among the terrace greenery"
+                  loading="lazy"
+                />
+              </span>
+              <span class="exp-card-body">
+                <h3>The Terrace</h3>
+                <span class="mono">A leafy oasis in East Village</span>
+                <span class="exp-arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+            <a class="exp-card" href="/experiences.html#tasting">
+              <span class="img-mask">
+                <img
+                  src="/assets/img/g-20.jpg"
+                  alt="The full table from above — plates, boards and garnishes"
+                  loading="lazy"
+                />
+              </span>
+              <span class="exp-card-body">
+                <h3>Tasting Menus</h3>
+                <span class="mono">Three voyages, from £36</span>
+                <span class="exp-arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.6 Chapter 04 — The people -->
+      <section class="people section">
+        <div class="container people-grid">
+          <div class="img-mask people-img">
+            <img
+              src="/assets/img/hero-2.jpg"
+              alt="A bartender straining a cocktail into a coupe at the Bamboo Mat bar"
+              loading="lazy"
+            />
+          </div>
+          <div class="people-copy">
+            <p class="eyebrow">04 — Who We Are</p>
+            <h2 class="display">
+              From <em>Chotto Matte</em> and <em>Sushisamba</em> to a corner of East Village.
+            </h2>
+            <p class="measure">
+              Chef-owner Denis Gobjila and partner Victor Rosca left London’s biggest Nikkei houses
+              to build their own. Since 2022, Bamboo Mat has been one of the trailblazers of the
+              Nikkei movement in East London.
+            </p>
+            <a class="text-link mono" href="/about.html">Meet the founders →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.7 Through the lens -->
+      <section class="lens section">
+        <div class="container">
+          <p class="eyebrow">05 — The Room</p>
+        </div>
+        <a class="lens-strip" href="/gallery.html" aria-label="Open the gallery" data-lens>
+          <div class="lens-track" data-lens-track>
+            <span class="img-mask lens-item"><img src="/assets/img/g-1.jpg" alt="Tuna tartar with the dining room behind" loading="lazy" /></span>
+            <span class="img-mask lens-item lens-item-low"><img src="/assets/img/g-9.jpg" alt="Cocktail hour at the bar" loading="lazy" /></span>
+            <span class="img-mask lens-item"><img src="/assets/img/g-13.jpg" alt="Maki board with an autumn pumpkin mochi" loading="lazy" /></span>
+            <span class="img-mask lens-item lens-item-low"><img src="/assets/img/g-16.jpg" alt="Spritz and standing tempura prawns" loading="lazy" /></span>
+            <span class="img-mask lens-item"><img src="/assets/img/g-23.jpg" alt="A toast over dinner" loading="lazy" /></span>
+            <span class="img-mask lens-item lens-item-low"><img src="/assets/img/g-26.jpg" alt="Pumpkin mochi on an engraved plate" loading="lazy" /></span>
+            <span class="img-mask lens-item"><img src="/assets/img/g-2.jpg" alt="Tartar on the table by the green banquettes" loading="lazy" /></span>
+            <span class="img-mask lens-item lens-item-low"><img src="/assets/img/g-28.jpg" alt="The house serve in cut crystal, backlit" loading="lazy" /></span>
+            <span class="img-mask lens-item"><img src="/assets/img/g-11.jpg" alt="Maki roll beside a dark punch" loading="lazy" /></span>
+            <span class="img-mask lens-item lens-item-low"><img src="/assets/img/g-19.jpg" alt="Rocks glass and pumpkin mochi" loading="lazy" /></span>
+          </div>
+        </a>
+      </section>
+
+      <!-- 3.8 Final invitation -->
+      <section class="invite">
+        <div class="container invite-inner">
+          <h2 class="display">Your table is waiting, between <em>two worlds</em>.</h2>
+          <p class="mono invite-details">
+            Tue–Sun · 21-24 Victory Parade, East Village E20 1FS · 3 min from Westfield Stratford
+          </p>
+          <button type="button" class="btn btn-gold btn-lg" data-reserve>Reserve a table</button>
+        </div>
+      </section>
     </main>
   </body>
 </html>
