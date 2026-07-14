@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Menu — Bamboo Mat</title>
+    <meta
+      name="description"
+      content="Two coastlines, one table. Tasting menus, ceviche, maki, nigiri, the anticucho grill and signature cocktails at Bamboo Mat, Stratford."
+    />
+    <meta name="theme-color" content="#171814" />
+    <script>
+      (function () {
+        var c = document.documentElement.classList;
+        c.add('js');
+        try {
+          if (!sessionStorage.getItem('bm:visited')) c.add('is-first-visit');
+          if (sessionStorage.getItem('bm:leaving')) c.add('is-arriving');
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/img/bamboo_logo.svg" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body data-page="menu">
+    <main id="main">
+      <!-- §4 Menu sections arrive in build-order step 5 -->
+    </main>
+  </body>
+</html>

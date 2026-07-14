@@ -1,0 +1,5 @@
+/* Single stylesheet entry, linked from every page <head>.
+   Vite bundles the @import graph on build. */
+@import './tokens.css';
+@import './base.css';
+@import './components.css';

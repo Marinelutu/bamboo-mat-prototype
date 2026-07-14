@@ -1,0 +1,42 @@
+/* ------------------------------------------------------------------
+   Design tokens — "Neon Nikkei, candle-lit" (plan §2)
+   ------------------------------------------------------------------ */
+:root {
+  /* Palette */
+  --sumi: #171814;            /* warm charcoal, page background — NOT pure black */
+  --nori: #1f221b;            /* raised surfaces, cards, alt sections */
+  --tigersmilk: #efead9;      /* warm cream — primary text on dark */
+  --tigersmilk-60: rgba(239, 234, 217, 0.6); /* secondary text */
+  --bamboo: #8fa974;          /* leaf green — structural accents, labels, hover states */
+  --aji: #e4a339;             /* ají amarillo gold — the ONLY CTA/appetite color, scarce */
+  --line: rgba(239, 234, 217, 0.14); /* hairlines, slat dividers */
+
+  /* Typography */
+  --font-display: 'Instrument Serif', 'Georgia', serif;
+  --font-body: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+
+  --display-xl: clamp(3rem, 9vw, 8.5rem);   /* hero */
+  --display-lg: clamp(2.4rem, 6vw, 5.5rem); /* section heads */
+  --display-md: clamp(1.8rem, 3.5vw, 3rem);
+  --body: clamp(1rem, 1.1vw, 1.125rem);
+  --mono-label: 0.72rem;
+
+  /* Layout */
+  --container-max: 84rem;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --nav-h: 5rem;
+  --section-pad: clamp(5rem, 14vh, 9.5rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 200ms;
+
+  /* Layers */
+  --z-pill: 70;
+  --z-nav: 80;
+  --z-lightbox: 85;
+  --z-cover: 90;
+  --z-overlay: 92;  /* reserve overlay, mobile menu */
+  --z-slats: 95;    /* preloader + page transitions */
+}

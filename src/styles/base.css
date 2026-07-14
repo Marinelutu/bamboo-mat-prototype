@@ -1,0 +1,167 @@
+/* ------------------------------------------------------------------
+   Base — reset, typography, global utilities
+   ------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* fallback when Lenis is disabled (reduced motion) */
+}
+
+body {
+  background: var(--sumi);
+  color: var(--tigersmilk);
+  font-family: var(--font-body);
+  font-size: var(--body);
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100svh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* Display type ---------------------------------------------------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* The one emphasised word per headline (Khufu's pattern) */
+h1 em,
+h2 em,
+h3 em,
+.display em {
+  font-style: italic;
+  color: var(--aji);
+}
+
+/* Mono labels / eyebrows ------------------------------------------ */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--mono-label);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--mono-label);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--bamboo);
+  display: block;
+  margin-bottom: clamp(1.25rem, 3vh, 2.25rem);
+}
+
+/* Layout ----------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-pad);
+}
+
+.measure {
+  max-width: 34em;
+}
+
+/* Accessibility ---------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--aji);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--aji);
+  color: var(--sumi);
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.6em 1em;
+  background: var(--sumi);
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: var(--mono-label);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Paint cover: keeps first paint dark until the preloader
+   (first visit) or the transition roll-out (internal nav) takes over. */
+html.js.is-first-visit body::before,
+html.js.is-arriving body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--sumi);
+  z-index: var(--z-cover);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

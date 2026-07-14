@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bamboo Mat — Nikkei Dining in Stratford, London</title>
+    <meta
+      name="description"
+      content="Where Tokyo meets Lima. Bamboo Mat is a Nikkei restaurant in East Village, Stratford — ceviche, sushi and the anticucho grill, minutes from Westfield."
+    />
+    <meta name="theme-color" content="#171814" />
+    <script>
+      (function () {
+        var c = document.documentElement.classList;
+        c.add('js');
+        try {
+          if (!sessionStorage.getItem('bm:visited')) c.add('is-first-visit');
+          if (sessionStorage.getItem('bm:leaving')) c.add('is-arriving');
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/img/bamboo_logo.svg" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body data-page="home">
+    <main id="main">
+      <!-- §3 Home sections arrive in build-order step 4 -->
+    </main>
+  </body>
+</html>
