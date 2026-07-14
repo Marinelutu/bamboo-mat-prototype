@@ -7,7 +7,9 @@
   --nori: #1f221b;            /* raised surfaces, cards, alt sections */
   --tigersmilk: #efead9;      /* warm cream — primary text on dark */
   --tigersmilk-60: rgba(239, 234, 217, 0.6); /* secondary text */
-  --bamboo: #8fa974;          /* leaf green — structural accents, labels, hover states */
+  --bamboo: #8fa974;          /* leaf green — structural accents, labels, hover states.
+                                 The real logo holds no green (white wordmark + neon
+                                 pink/purple stalks), so the plan's default stands. */
   --aji: #e4a339;             /* ají amarillo gold — the ONLY CTA/appetite color, scarce */
   --line: rgba(239, 234, 217, 0.14); /* hairlines, slat dividers */
 
