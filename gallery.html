@@ -31,7 +31,20 @@
   </head>
   <body data-page="gallery">
     <main id="main">
-      <!-- §7 Gallery grid arrives in build-order step 8 -->
+      <!-- §7 header -->
+      <section class="gallery-head">
+        <div class="container">
+          <p class="eyebrow">Gallery</p>
+          <h1 class="display">Through <em>the lens</em>.</h1>
+        </div>
+      </section>
+
+      <!-- Masonry grid rendered by gallery.js from its image list -->
+      <section class="gallery-body">
+        <div class="container">
+          <div class="gallery-grid" data-gallery></div>
+        </div>
+      </section>
     </main>
   </body>
 </html>

@@ -21,6 +21,8 @@ const pageModules = {
   menu: () => import('./menu.js'),
   experiences: () => import('./experiences.js'),
   about: () => import('./about.js'),
+  gallery: () => import('./gallery.js'),
+  contact: () => import('./contact.js'),
 };
 
 pageModules[document.body.dataset.page]?.().then((mod) => mod.init?.());
