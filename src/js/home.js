@@ -1,7 +1,7 @@
 // Home page animations (plan §3).
-import { gsap, ScrollTrigger, SplitText, reducedMotion } from './core.js';
+import { gsap, ScrollTrigger, reducedMotion } from './core.js';
 import { whenRevealed } from './reveal.js';
-import { revealLines, parallaxImg, fadeUpGroup, initReducedMotionFades } from './fx.js';
+import { revealLines, parallaxImg, fadeUpGroup, wordScrub, initReducedMotionFades } from './fx.js';
 
 /* 3.1 Hero: Ken Burns + masked line rise after the reveal */
 async function initHero() {
@@ -39,15 +39,7 @@ async function initHero() {
 
 /* 3.2 Grace Dent quote: word-by-word scrubbed reveal */
 function initQuote() {
-  const text = document.querySelector('.quote-text');
-  const split = SplitText.create(text, { type: 'words' });
-  gsap.set(split.words, { opacity: 0.3 });
-  gsap.to(split.words, {
-    opacity: 1,
-    ease: 'none',
-    stagger: 0.06,
-    scrollTrigger: { trigger: text, start: 'top 78%', end: 'top 32%', scrub: true },
-  });
+  wordScrub(document.querySelector('.quote-text'));
   gsap.from('.quote cite', {
     autoAlpha: 0,
     duration: 0.8,

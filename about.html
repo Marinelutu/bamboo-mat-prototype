@@ -31,7 +31,103 @@
   </head>
   <body data-page="about">
     <main id="main">
-      <!-- §6 About sections arrive in build-order step 7 -->
+      <!-- §6 hero -->
+      <section class="page-hero" style="--hero-h: 60vh">
+        <div class="page-hero-media" aria-hidden="true">
+          <img src="/assets/img/hero-2.jpg" alt="" fetchpriority="high" />
+        </div>
+        <div class="container page-hero-content">
+          <p class="eyebrow">About</p>
+          <h1 class="display">A short story about <em>two coastlines</em>.</h1>
+        </div>
+      </section>
+
+      <!-- Scrollytelling column, 3 beats -->
+      <section class="story section">
+        <div class="container story-col">
+          <p class="story-beat">
+            In the late 1800s, Japanese migrants landed on Peru’s coast. They cooked with memory
+            and curiosity — the sea’s freshness, the fire of ají, the brightness of lime. Nikkei
+            cuisine was born.
+          </p>
+          <div class="makisu-divider story-divider" aria-hidden="true"></div>
+          <p class="story-beat">
+            A century later in London, chef Denis Gobjila (Chotto Matte) and Victor Rosca
+            (Sushisamba, Lucky Cat) left the city’s biggest Nikkei houses to stamp their own mark.
+          </p>
+          <div class="makisu-divider story-divider" aria-hidden="true"></div>
+          <p class="story-beat">
+            In 2022, Bamboo Mat opened in East London. Grace Dent called it ‘plates of Peruvian
+            joy’. We’ve been rolling ever since.
+          </p>
+        </div>
+      </section>
+
+      <!-- Founders row -->
+      <section class="founders section">
+        <div class="container">
+          <p class="eyebrow">The Founders</p>
+          <div class="founders-grid">
+            <article class="founder-card">
+              <div class="img-mask founder-img">
+                <img
+                  src="/assets/img/g-21.jpg"
+                  alt="Placeholder — chopsticks lifting maki at the pass (portrait to come)"
+                  loading="lazy"
+                />
+                <span class="founder-note mono">Portrait TBC — placeholder image</span>
+              </div>
+              <h3>Denis Gobjila</h3>
+              <p class="mono founder-role">Chef-Owner</p>
+              <p class="founder-bio">Ex-Chotto Matte. The knife, the fire, the standards.</p>
+            </article>
+            <article class="founder-card">
+              <div class="img-mask founder-img">
+                <img
+                  src="/assets/img/g-22.jpg"
+                  alt="Placeholder — a toast over the table (portrait to come)"
+                  loading="lazy"
+                />
+                <span class="founder-note mono">Portrait TBC — placeholder image</span>
+              </div>
+              <h3>Victor Rosca</h3>
+              <p class="mono founder-role">Co-Founder</p>
+              <p class="founder-bio">Ex-Sushisamba &amp; Lucky Cat. The room and the welcome.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Press band -->
+      <section class="press section">
+        <div class="container">
+          <p class="eyebrow">As Seen In</p>
+        </div>
+        <div class="press-marquee" data-press-marquee aria-hidden="true">
+          <div class="press-track" data-press-track>
+            <span>The Guardian</span><span>·</span>
+            <span>Time Out</span><span>·</span>
+            <span>Hot Dinners</span><span>·</span>
+          </div>
+        </div>
+        <div class="container">
+          <blockquote class="press-quote">
+            <p class="quote-text">“Plates of Peruvian joy.”</p>
+            <cite class="mono">Grace Dent — The Guardian</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- closer -->
+      <section class="invite invite-sm">
+        <div class="container invite-inner">
+          <h2 class="display">Your table is waiting, between <em>two worlds</em>.</h2>
+          <p class="mono invite-details">
+            Tue–Sun · 21-24 Victory Parade, East Village E20 1FS · 3 min from Westfield Stratford
+          </p>
+          <button type="button" class="btn btn-gold btn-lg" data-reserve>Reserve a table</button>
+        </div>
+      </section>
     </main>
   </body>
 </html>

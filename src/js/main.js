@@ -20,6 +20,7 @@ const pageModules = {
   home: () => import('./home.js'),
   menu: () => import('./menu.js'),
   experiences: () => import('./experiences.js'),
+  about: () => import('./about.js'),
 };
 
 pageModules[document.body.dataset.page]?.().then((mod) => mod.init?.());

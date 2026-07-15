@@ -40,6 +40,18 @@ export function parallaxImg(mask) {
   );
 }
 
+/** Word-by-word opacity scrub for pull-quotes (Khufu's pattern). */
+export function wordScrub(el) {
+  const split = SplitText.create(el, { type: 'words' });
+  gsap.set(split.words, { opacity: 0.3 });
+  gsap.to(split.words, {
+    opacity: 1,
+    ease: 'none',
+    stagger: 0.06,
+    scrollTrigger: { trigger: el, start: 'top 78%', end: 'top 32%', scrub: true },
+  });
+}
+
 /** Staggered fade-up for a group of cards/rows. */
 export function fadeUpGroup(items, trigger, { stagger = 0.08, y = 32 } = {}) {
   gsap.from(items, {

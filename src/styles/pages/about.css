@@ -1,0 +1,119 @@
+/* ------------------------------------------------------------------
+   About page (plan §6)
+   ------------------------------------------------------------------ */
+
+/* Scrollytelling column */
+.story-col {
+  max-width: 44rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 9vh, 5.5rem);
+}
+
+.story-beat {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.4vw, 2.1rem);
+  line-height: 1.35;
+}
+
+.story-divider {
+  max-width: 10rem;
+}
+
+/* Founders */
+.founders-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.founder-img {
+  aspect-ratio: 4 / 5;
+}
+
+.founder-img img {
+  transition: transform 0.6s var(--ease-out);
+}
+
+.founder-card:hover .founder-img img {
+  transform: scale(1.04);
+}
+
+.founder-note {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.9rem;
+  color: var(--tigersmilk-60);
+  background: rgba(23, 24, 20, 0.65);
+  padding: 0.45em 0.7em;
+}
+
+.founder-card h3 {
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  margin-top: 1.3rem;
+}
+
+.founder-role {
+  color: var(--bamboo);
+  margin-top: 0.5rem;
+}
+
+.founder-bio {
+  color: var(--tigersmilk-60);
+  margin-top: 0.7rem;
+  font-size: 0.98rem;
+}
+
+@media (max-width: 700px) {
+  .founders-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Press band */
+.press {
+  overflow: hidden;
+}
+
+.press-marquee {
+  margin-top: 1rem;
+  border-block: 1px solid var(--line);
+  padding-block: 1.1rem;
+  overflow: hidden;
+}
+
+.press-track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  color: var(--tigersmilk-60);
+  white-space: nowrap;
+}
+
+.press-quote {
+  text-align: center;
+  padding-top: clamp(4rem, 12vh, 7rem);
+}
+
+.press-quote .quote-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--display-lg);
+  line-height: 1.05;
+}
+
+.press-quote cite {
+  display: block;
+  font-style: normal;
+  margin-top: 2rem;
+  color: var(--tigersmilk-60);
+}
+
+/* Reduced motion: static press row */
+@media (prefers-reduced-motion: reduce) {
+  .press-marquee {
+    overflow-x: auto;
+  }
+}
