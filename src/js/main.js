@@ -19,6 +19,7 @@ initMagnetic();
 const pageModules = {
   home: () => import('./home.js'),
   menu: () => import('./menu.js'),
+  experiences: () => import('./experiences.js'),
 };
 
 pageModules[document.body.dataset.page]?.().then((mod) => mod.init?.());
