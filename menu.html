@@ -31,7 +31,43 @@
   </head>
   <body data-page="menu">
     <main id="main">
-      <!-- §4 Menu sections arrive in build-order step 5 -->
+      <!-- §4 compact hero -->
+      <section class="menu-hero">
+        <div class="menu-hero-media" aria-hidden="true">
+          <img src="/assets/img/g-20.jpg" alt="" fetchpriority="high" />
+          <div class="menu-hero-shade"></div>
+        </div>
+        <div class="container menu-hero-content">
+          <p class="eyebrow">The Menu</p>
+          <h1 class="display">Two coastlines, <em>one table</em>.</h1>
+          <p class="origin-quote">
+            “Far from home, Japanese hands met Peruvian soil… From this quiet alchemy, Nikkei
+            cuisine was born.”
+          </p>
+        </div>
+      </section>
+
+      <!-- Tasting menus first -->
+      <section class="tastings section">
+        <div class="container">
+          <div class="tastings-grid" data-tastings></div>
+        </div>
+      </section>
+
+      <!-- Sticky category nav -->
+      <nav class="menu-chipbar" aria-label="Menu categories">
+        <div class="container menu-chipbar-row" data-chipbar></div>
+      </nav>
+
+      <!-- Menu sections rendered from src/js/data/menu-data.js -->
+      <div class="container menu-sections" data-menu-sections></div>
+
+      <div class="container">
+        <p class="menu-foot mono">
+          VG — plant-based friendly (tags illustrative for this prototype). A discretionary 12.5%
+          service charge will be added to bills.
+        </p>
+      </div>
     </main>
   </body>
 </html>

@@ -1,0 +1,220 @@
+/* ------------------------------------------------------------------
+   Menu page (plan §4)
+   ------------------------------------------------------------------ */
+
+.menu-hero {
+  position: relative;
+  min-height: 55vh;
+  display: flex;
+  align-items: flex-end;
+  padding-top: calc(var(--nav-h) + 1.5rem);
+  padding-bottom: clamp(2.5rem, 7vh, 4.5rem);
+  overflow: hidden;
+}
+
+.menu-hero-media {
+  position: absolute;
+  inset: 0;
+}
+
+.menu-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(23, 24, 20, 0.95) 5%, rgba(23, 24, 20, 0.35) 60%),
+    rgba(23, 24, 20, 0.35);
+}
+
+.menu-hero-content {
+  position: relative;
+}
+
+.menu-hero h1 {
+  font-size: var(--display-lg);
+}
+
+.origin-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  color: var(--tigersmilk-60);
+  max-width: 36em;
+  margin-top: 1.4rem;
+}
+
+/* Tasting menus ------------------------------------------------------ */
+.tastings {
+  padding-block: clamp(3.5rem, 9vh, 6rem);
+}
+
+.tastings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.tasting-card {
+  background: var(--nori);
+  border-top: 1px solid var(--line);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  transition: border-color var(--dur-fast) ease;
+}
+
+.tasting-card:hover {
+  border-top-color: var(--aji);
+}
+
+.tasting-card h3 {
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+}
+
+.tasting-price {
+  color: var(--aji);
+  margin-top: 0.6rem;
+}
+
+.tasting-card ul {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55em;
+  color: var(--tigersmilk-60);
+  font-size: 0.98rem;
+}
+
+.tasting-note {
+  margin-top: 1.6rem;
+  color: var(--tigersmilk-60);
+}
+
+@media (max-width: 820px) {
+  .tastings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sticky category chips ----------------------------------------------- */
+.menu-chipbar {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 60;
+  background: rgba(23, 24, 20, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-block: 1px solid var(--line);
+}
+
+.menu-chipbar-row {
+  display: flex;
+  gap: clamp(1.1rem, 2.5vw, 2.25rem);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.menu-chipbar-row::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-chip {
+  padding-block: 1.1rem;
+  white-space: nowrap;
+  color: var(--tigersmilk-60);
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+}
+
+.menu-chip:hover {
+  color: var(--tigersmilk);
+}
+
+.menu-chip.is-active {
+  color: var(--tigersmilk);
+  border-bottom-color: var(--aji);
+}
+
+/* Menu sections --------------------------------------------------------- */
+.menu-sections {
+  padding-top: clamp(2rem, 5vh, 3.5rem);
+}
+
+.menu-section {
+  padding-block: clamp(2.25rem, 6vh, 4rem);
+  scroll-margin-top: calc(var(--nav-h) + 4.5rem);
+}
+
+.menu-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  margin-bottom: clamp(1.5rem, 3.5vh, 2.25rem);
+}
+
+.menu-section-head h2 {
+  font-size: var(--display-md);
+}
+
+.menu-section-note {
+  color: var(--tigersmilk-60);
+}
+
+.menu-list {
+  columns: 2;
+  column-gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.menu-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6em;
+  padding-block: 0.55em;
+  break-inside: avoid;
+}
+
+.menu-row-name {
+  transition: transform var(--dur-fast) ease;
+}
+
+.menu-row:hover .menu-row-name {
+  transform: translateX(6px);
+}
+
+.menu-tag {
+  color: var(--bamboo);
+  font-size: 0.62rem;
+  margin-left: 0.45em;
+}
+
+.menu-row-dots {
+  flex: 1;
+  min-width: 2em;
+  border-bottom: 1px dotted var(--line);
+  transform: translateY(-0.3em);
+}
+
+.menu-row-price {
+  color: var(--tigersmilk-60);
+  transition: color var(--dur-fast) ease;
+  white-space: nowrap;
+}
+
+.menu-row:hover .menu-row-price {
+  color: var(--aji);
+}
+
+@media (max-width: 760px) {
+  .menu-list {
+    columns: 1;
+  }
+}
+
+.menu-foot {
+  color: var(--tigersmilk-60);
+  padding-block: clamp(2rem, 5vh, 3rem);
+  border-top: 1px solid var(--line);
+}

@@ -18,6 +18,7 @@ initMagnetic();
 // Page-specific modules, loaded on demand (filled in as pages are built).
 const pageModules = {
   home: () => import('./home.js'),
+  menu: () => import('./menu.js'),
 };
 
 pageModules[document.body.dataset.page]?.().then((mod) => mod.init?.());
