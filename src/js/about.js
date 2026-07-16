@@ -24,9 +24,10 @@ export async function init() {
   gsap.to(track, { xPercent: -33.333, duration: 22, ease: 'none', repeat: -1 });
 
   wordScrub(document.querySelector('.press-quote .quote-text'));
-  gsap.from('.press-quote cite', {
+  gsap.from(['.press-quote cite', '.press-links'], {
     autoAlpha: 0,
     duration: 0.8,
+    stagger: 0.12,
     scrollTrigger: { trigger: '.press-quote cite', start: 'top 88%', once: true },
   });
 

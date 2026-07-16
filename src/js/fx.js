@@ -2,18 +2,30 @@
 // Everything animates transform/opacity only (plan §10).
 import { gsap, ScrollTrigger, SplitText, reducedMotion } from './core.js';
 
-/** Display headline: masked line rise on enter (Khufu's pattern). */
+/** Display headline: masked line rise on enter (Khufu's pattern).
+    autoSplit re-splits when the element's width changes (resize, rotation),
+    so line breaks never stay frozen from the initial layout. */
 export function revealLines(el, { delay = 0, trigger = el } = {}) {
-  const split = SplitText.create(el, { type: 'lines', mask: 'lines' });
-  gsap.from(split.lines, {
-    yPercent: 115,
-    duration: 1,
-    ease: 'power4.out',
-    stagger: 0.1,
-    delay,
-    scrollTrigger: { trigger, start: 'top 85%', once: true },
+  let played = false;
+  return SplitText.create(el, {
+    type: 'lines',
+    mask: 'lines',
+    autoSplit: true,
+    onSplit(self) {
+      if (played) return undefined; // after the reveal, re-splits stay static
+      return gsap.from(self.lines, {
+        yPercent: 115,
+        duration: 1,
+        ease: 'power4.out',
+        stagger: 0.1,
+        delay,
+        scrollTrigger: { trigger, start: 'top 85%', once: true },
+        onComplete: () => {
+          played = true;
+        },
+      });
+    },
   });
-  return split;
 }
 
 /** Image parallax inside a masked container: drift + settle-in scale. */

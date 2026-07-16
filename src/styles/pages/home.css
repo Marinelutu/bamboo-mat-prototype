@@ -152,6 +152,20 @@
   color: var(--tigersmilk-60);
 }
 
+.quote-more {
+  text-align: center;
+  margin-top: 0.4rem;
+}
+
+.quote-more .text-link {
+  color: var(--tigersmilk-60);
+  margin-top: 0.8rem;
+}
+
+.quote-more .text-link:hover {
+  color: var(--bamboo);
+}
+
 /* 3.3 Cuisine trio ------------------------------------------------------ */
 .trio-row {
   display: grid;

@@ -61,7 +61,7 @@ function initLightbox() {
        <button type="button" class="lightbox-close mono">Close</button>
        <button type="button" class="lightbox-arrow lightbox-prev" aria-label="Previous image">←</button>
        <figure class="lightbox-stage">
-         <img class="lightbox-img" src="" alt="" />
+         <img class="lightbox-img" alt="" />
          <figcaption class="lightbox-caption mono"></figcaption>
        </figure>
        <button type="button" class="lightbox-arrow lightbox-next" aria-label="Next image">→</button>

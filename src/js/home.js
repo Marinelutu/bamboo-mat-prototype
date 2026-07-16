@@ -40,9 +40,10 @@ async function initHero() {
 /* 3.2 Grace Dent quote: word-by-word scrubbed reveal */
 function initQuote() {
   wordScrub(document.querySelector('.quote-text'));
-  gsap.from('.quote cite', {
+  gsap.from(['.quote cite', '.quote-more'], {
     autoAlpha: 0,
     duration: 0.8,
+    stagger: 0.12,
     scrollTrigger: { trigger: '.quote cite', start: 'top 88%', once: true },
   });
 }
